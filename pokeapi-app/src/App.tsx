@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   Box,
   Button,
@@ -8,14 +8,14 @@ import {
   Grid,
   Image,
   Text,
-} from "@chakra-ui/react";
-import { extendTheme } from "@chakra-ui/react";
-import Navbar from "./components/Navbar";
+} from '@chakra-ui/react';
+import { extendTheme } from '@chakra-ui/react';
+import Navbar from './components/Navbar';
 
 const theme = extendTheme({
   fonts: {
-    heading: "Poppins, sans-serif",
-    body: "Poppins, sans-serif",
+    heading: 'Poppins, sans-serif',
+    body: 'Poppins, sans-serif',
   },
 });
 
@@ -33,7 +33,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchPokemonList = async () => {
       const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offset}`
+        `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offset}`,
       );
 
       const results = await Promise.all(
@@ -43,14 +43,14 @@ const App: React.FC = () => {
             name: result.name,
             image: pokemonResponse.data.sprites.front_default,
             types: pokemonResponse.data.types.map(
-              (type: any) => type.type.name
+              (type: any) => type.type.name,
             ),
             abilities: pokemonResponse.data.abilities.map(
-              (ability: any) => ability.ability.name
+              (ability: any) => ability.ability.name,
             ),
           };
           return pokemon;
-        })
+        }),
       );
 
       setPokemonList((prevList) => [...prevList, ...results]);
@@ -64,8 +64,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <ChakraProvider theme={theme} >
-      <Flex flexDirection="column" alignItems="center" padding={2}   backgroundColor="Black">
+    <ChakraProvider theme={theme}>
+      <Flex
+        flexDirection="column"
+        alignItems="center"
+        padding={2}
+        backgroundColor="Black"
+      >
         <Navbar />
         <Grid
           templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
@@ -100,11 +105,11 @@ const App: React.FC = () => {
               </Text>
               <Text>
                 <strong>Types: </strong>
-                {pokemon.types.join(", ")}
+                {pokemon.types.join(', ')}
               </Text>
               <Text>
                 <strong>Abilities: </strong>
-                {pokemon.abilities.join(", ")}
+                {pokemon.abilities.join(', ')}
               </Text>
             </Box>
           ))}
