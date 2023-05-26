@@ -64,26 +64,29 @@ const App: React.FC = () => {
   };
 
   return (
-    <ChakraProvider theme={theme}>
-      <Flex flexDirection="column" alignItems="center" padding={4}>
+    <ChakraProvider theme={theme} >
+      <Flex flexDirection="column" alignItems="center" padding={2}   backgroundColor="Black">
         <Navbar />
         <Grid
           templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
           gap={6}
-          paddingTop="14"
           width="100%"
           maxWidth="900px"
+          padding={1.5}
+          marginTop={50}
         >
           {pokemonList.map((pokemon) => (
             <Box
               key={pokemon.name}
-              borderWidth="1px"
+              borderWidth="3px"
+              borderColor="#3D82C9"
               borderRadius="md"
               padding={4}
               display="flex"
               flexDirection="column"
-              alignItems="center"
-              justifyContent="center"
+              alignItems="justify"
+              justifyContent="justify"
+              backgroundColor="#E1CF97"
             >
               <Image
                 src={pokemon.image}
@@ -92,7 +95,7 @@ const App: React.FC = () => {
                 height="120px"
                 marginBottom={2}
               />
-              <Text fontWeight="bold" marginBottom={2}>
+              <Text fontWeight="bold" marginBottom={4}>
                 {pokemon.name}
               </Text>
               <Text>
@@ -107,7 +110,7 @@ const App: React.FC = () => {
           ))}
         </Grid>
         <Button marginTop={4} onClick={handleLoadMore}>
-          Load More
+          Ver Mais
         </Button>
       </Flex>
     </ChakraProvider>

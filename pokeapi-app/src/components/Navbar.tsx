@@ -8,16 +8,18 @@ const Navbar: React.FC = () => {
       align="center"
       justify="space-between"
       padding={2}
-      backgroundColor="gray.600"
+      backgroundColor="#F1F668"
       color="white"
       position="fixed"
       top={0}
       left={0}
       right={0}
       zIndex={999}
+      border={2}
+      borderColor="black"
     >
       <Box>
-        <Image src="/pokeapi-logo.png" alt="PokeAPI" height={10} />
+        <Image src="poke.png" alt="PokeAPI" height={10} />
       </Box>
     </Flex>
   );
